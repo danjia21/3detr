@@ -273,7 +273,7 @@ class TransformerEncoderLayer(nn.Module):
         src = src + self.dropout1(src2)
         if self.use_ffn:
             src2 = self.norm2(src)
-            src2 = self.linear2(self.dropout(self.activation(self.linear1(src2))))
+            src2 = self.linear2(self.dropout(self.activation(self.linear1(src2)).clone()))
             src = src + self.dropout2(src2)
         if return_attn_weights:
             return src, attn_weights
@@ -372,7 +372,7 @@ class TransformerDecoderLayer(nn.Module):
                                    key_padding_mask=memory_key_padding_mask)
         tgt = tgt + self.dropout2(tgt2)
         tgt2 = self.norm3(tgt)
-        tgt2 = self.linear2(self.dropout(self.activation(self.linear1(tgt2))))
+        tgt2 = self.linear2(self.dropout(self.activation(self.linear1(tgt2)).clone()))
         tgt = tgt + self.dropout3(tgt2)
         if return_attn_weights:
             return tgt, attn
