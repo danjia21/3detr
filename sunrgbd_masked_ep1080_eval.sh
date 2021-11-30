@@ -1,21 +1,21 @@
 #!/bin/bash
 
 
-# python main.py \
-# --dataset_name sunrgbd \
-# --nqueries 128 \
-# --enc_type "masked" \
-# --test_ckpt ~/tmp/sunrgbd_masked_ep1080.pth \
-# --test_only \
-# --dataset_root_dir data/sunrgbd/sunrgbd_pc_bbox_votes_50k_v1
-
-
 python main.py \
---dataset_name scannet \
---nqueries 256 \
---enc_type "vanilla" \
---test_ckpt ~/tmp/scannet_ep1080.pth \
---test_only
+--dataset_name sunrgbd \
+--nqueries 128 \
+--enc_type "masked" \
+--test_ckpt ~/tmp/sunrgbd_masked_ep1080.pth \
+--test_only \
+--dataset_root_dir data/sunrgbd/sunrgbd_pc_bbox_votes_50k_v1
+
+
+# python main.py \
+# --dataset_name scannet \
+# --nqueries 256 \
+# --enc_type "vanilla" \
+# --test_ckpt ~/tmp/scannet_ep1080.pth \
+# --test_only
 
 
 # --test_plot \
